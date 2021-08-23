@@ -1,0 +1,75 @@
+<odoo>
+
+  <data>
+
+    <record model="ir.ui.view" id="storage_contract_tree">
+
+        <field name="name">storage.contract.tree</field>
+        <field name="model">storagee.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="customer"/>
+				<field name="payment_methodd"/>
+				<field name="confirm_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="storage_contract_form" model="ir.ui.view">
+
+		<field name="name">storage.contract.form</field>
+		<field name="model">storagee.contract</field>
+		<field name="arch" type="xml">
+
+			<form>
+			<sheet>
+				<header>
+				</header>
+				<div class="oe_title">
+				   <h1>
+					   <field name="sequence_no" readonly="1"/>
+				    </h1>
+				</div>
+				<group>
+					<group>
+						<field name="customer" />
+						<field name="payment_methodd"/>
+					</group>
+					<group>
+						<field name="confirm_date" />
+					</group>
+				</group>
+				<notebook >
+					<page string="order lines">
+						<field name="user_lines">
+							<tree editable="bottom">
+								<field name="product_id" />
+								<field name="typ" />
+								<field name="order_qty" style="width:40%;"/>
+								<field name="min_qty" style="width:40%;" />
+								<field name="user_id" invisible="1" />
+								<field name="remaining_qty" style="width:40%;" />
+
+							</tree>
+
+						</field>
+					</page>
+				</notebook>
+			</sheet>
+			</form>
+		</field>
+	</record>
+
+    <record model="ir.actions.act_window" id="storage_contract_action_windoww">
+        <field name="name">storage contract</field>
+        <field name="res_model">storagee.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <menuitem id="storage_contract_menu" name="Storage Contract" action="storage_contract_action_windoww" parent="sale.sale_order_menu"/>
+
+  </data>
+
+</odoo>

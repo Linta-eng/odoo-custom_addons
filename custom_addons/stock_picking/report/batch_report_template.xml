@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<template id="report_batch_picking">
+	   <t t-call="web.html_container">
+			<t t-foreach="docs" t-as="o">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<div>
+							<strong><span>Batch Picking</span></strong>
+						</div>
+						<table class="table table-sm o_main_table" name="picking_ids" 
+							style="border: 1pt solid black;display: inline-block;">
+							<thead>
+								<tr>
+									<th >Reference</th>
+									<th>Contact</th>
+									<th>Scheduled Date</th>
+									<th>Source Document</th>
+									<th>Company</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr t-foreach='o.picking_ids' t-as='line'>
+									<td><span t-field="line.name"/></td>
+									<td><span t-field="line.partner_id"/></td>
+									<td><span t-field="line.scheduled_date"/></td>
+									<td><span t-field="line.origin"/></td>
+									<td><span t-field="line.company_id"/></td>
+									<td><span t-field="line.state"/></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</t>
+			</t>
+		</t>
+	</template>
+</odoo>

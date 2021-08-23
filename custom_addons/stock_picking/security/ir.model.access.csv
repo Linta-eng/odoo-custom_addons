@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_picking_batch,Base_user,model_stock_picking_batch,base.group_user,1,1,1,1
+access_delivery_routes,Base_user,model_delivery_routes,base.group_user,1,1,1,1
+access_batch_reports,Base_user,model_stock_picking_batch,base.group_user,1,1,1,1
+

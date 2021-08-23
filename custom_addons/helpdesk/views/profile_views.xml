@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id="profile_list_view" model="ir.ui.view">
+
+		<field name="name">profile.list.view</field>
+		<field name="model">new.profile</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="help_team"/>
+				<field name="assigned"/>
+				<field name="customer"/>
+				<field name="cust_name"/>
+				<field name="cust_email"/>
+				<field name="set_priority"/>
+				<field name="state"/>
+			</tree>
+		</field>
+
+	</record>
+
+
+
+	<record id="profile_form_view" model="ir.ui.view">
+
+		<field name="name">profile.form.view</field>
+		<field name="model">new.profile</field>
+		<field name="arch" type="xml">
+
+			<form>
+
+			<header>
+				<button name="btn" string="Done" class="oe_highlight" type="object"/>
+				<button name="solbtn" string="Solved" class="oe_highlight" type="object"/>
+				<field name="state" widget="statusbar" options="{'clickable':'1'}"/>
+
+			</header>
+
+			<!-- <widget name="web_ribbon" text="Solved" bg_color="bg-success" attrs="{'invisible':[('state','!=','solved')]}" />
+			<widget name="web_ribbon" text="InProgress" bg_color="bg-danger" attrs="{'invisible':[('state','!=','inprogress')]}" />
+			<widget name="web_ribbon" text="Completed" bg_color="bg-info" attrs="{'invisible':[('state','!=','completed')]}" />
+ -->
+			<sheet>
+
+
+				
+				<group string="INVENTORY" >
+
+				<group>
+					<field name="help_team"/>
+					<field name="assigned"/>
+					<field name="set_priority" widget="priority"/>
+				</group>
+
+				<group >
+
+					<field name="customer"/>
+					<field name="cust_name"/>
+					<field name="cust_email"/>
+					<field name="date_from" string="Date" widget="date" invisible="1"/>
+					
+				</group>
+
+				</group>
+				<notebook>
+                    <page string="Internal Notes" name="internal_notes">
+                     	<field name="description" placeholder="Add a description..."/>
+                    </page>
+                </notebook>
+
+			</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_profile" model="ir.actions.act_window">
+
+		<field name="name">PROFILE</field>
+		<field name="res_model">new.profile</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+
+	<menuitem id="helpdesk_management_sub_menu" name="HELPDESK" action="action_profile" parent="helpdesk_management_root_menu"/>
+
+</odoo>

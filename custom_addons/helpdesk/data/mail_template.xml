@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+	<data noupdate="1">
+        
+        <record id="customer_templatee" model="mail.template">
+            <field name="name">Details</field>
+            <field name="model_id" ref="helpdesk.model_new_profile"/>
+            <field name="email_from">${object.assigned.email_formatted|safe}</field>
+            <field name="email_to">${object.cust_email}</field>
+            <field name="subject">Main details</field>
+            <field name="body_html" type="html">
+			<div style="margin: 0px; padding: 0px;">
+			    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+			        Dear ${object.cust_name}
+			        
+			        <br /><br />
+			        Your comaplaint is being processed under ${object.help_team}
+			            
+			    </p>
+			</div>
+            </field>
+            <field name="report_template" ref="report_customer_details"/>
+            <field name="report_name">Enquiry Details_${(object.customer)}</field>
+            
+        </record>
+
+        <record id="solved_templatee" model="mail.template">
+            <field name="name">Solved Details</field>
+            <field name="model_id" ref="helpdesk.model_new_profile"/>
+            <field name="email_from">${object.assigned.email_formatted|safe}</field>
+            <field name="email_to">${object.cust_email}</field>
+            <field name="subject">Solved details</field>
+            <field name="body_html" type="html">
+			<div style="margin: 0px; padding: 0px;">
+			    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+			        Dear ${object.cust_name}
+			        
+			        <br /><br />
+			        The issue has been solved by ${object.assigned} under ${object.help_team}.
+			            
+			    </p>
+			</div>
+            </field>
+            <field name="report_template" ref="report_solved_details"/>
+            <field name="report_name">Enquiry Details_${(object.customer)}</field>
+            
+        </record>
+    </data>
+
+</odoo>

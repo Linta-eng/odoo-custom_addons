@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cus_user,Base user,model_storagee_contract,base.group_user,1,1,1,1
+user_line_user,Base user,model_storage_inherit_productss,base.group_user,1,1,1,1
+wizardd_user,Base user,model_storage_wizard,base.group_user,1,1,1,1

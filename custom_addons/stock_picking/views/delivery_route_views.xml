@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<record model="ir.ui.view" id="delivery_route_tree">
+		<field name="name">Route</field>
+	  	<field name="model">delivery.routes</field>
+	  	<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+			</tree>
+	    </field>
+	</record>
+
+	<record model="ir.ui.view" id="delivery_route_form">
+		<field name="name">Batch</field>
+	  	<field name="model">delivery.routes</field>
+	  	<field name="arch" type="xml">
+	  		<form string="Route">
+	  			<sheet>
+	  				<div class="oe_title">
+						<h1>
+							<field name="name" readonly="1"/>
+						</h1>
+					</div>
+					<group>
+						<group>
+							<field name="name"/>
+							<field name="address"/>
+							<field name="country_id" widget="res_country_many2one"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+	  	</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="delivery_route_action">
+		<field name="name">Route</field>
+		<field name="res_model">delivery.routes</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+	<menuitem name="Stock" id="stock_picking_menu_root"/>
+	<menuitem name="Route" id="delivery_route_menu_root" parent="stock_picking_menu_root"
+	sequence="1" action="delivery_route_action"/>
+</odoo>

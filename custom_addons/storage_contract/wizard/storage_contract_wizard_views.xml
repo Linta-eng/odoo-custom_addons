@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record id ="wizard_storageee_contract" model="ir.ui.view">
+			<field name="name">wizard.storageee.contract</field>
+			<field name="model">storage.wizard</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<script>
+							$(document).ready(function(){
+                			$('.modal-dialog').css({'width': '400px', 'height': '75%'});
+							$('.modal-content').css({'height': '55%'});
+
+							});
+						</script>
+						<group>
+							<group>
+								<field name="partner_id" invisible="1"/>
+								<field name="storage_contract" domain="[('user_id.customer','=',partner_id)]"/>
+								<field name="order_quantity" />
+							</group>
+						</group>
+					</sheet>
+					<footer>
+						<button string="ADD" type="object" name="add_contract" class="oe_highlight"/>
+						<button string="cancel" special="cancel" class="btn btn-secondary" />
+					</footer>
+				</form>
+			</field>
+
+
+		</record>
+		<record id="wizard_contract_storage" model="ir.actions.act_window">
+			<field name="name">storage contract </field>
+			<field name="res_model">storage.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+	</data>
+</odoo>

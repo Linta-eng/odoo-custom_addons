@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+	<template id="customer_details">
+		<!-- <t t-call="web.basic_layout"> -->
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="doc">
+
+				<t t-call="web.external_layout">
+					<div class="page">
+						<div class="oe_structure"/>
+						<div class="row">
+							<div class="col-xs-8">
+								<table>
+								  <tr>
+								    <td><u>Incident Report</u></td><br></br>
+								  </tr>
+								  <tr>
+								    <td><strong>Reported by:</strong></td>
+								    <td>
+										<span t-field="doc.cust_name" />
+									</td>
+								  </tr>
+								  <tr>
+								  	<td><strong>Incident Date</strong></td>
+								  	<td><span t-field="doc.date_from" t-field-options='{"format": "dd-MM-yyyy"}'/></td>
+								  </tr>
+								</table>
+								<table class="table table-condensed" style="border: 3px solid black !important;">
+									<tr>
+										
+										<td width="60%">
+											<table>
+												<tr>
+													<td colspan="3" class="text-center">
+														<b><span t-field="doc.help_team" /></b>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span>
+															<strong>Assigned To:</strong>
+														</span>
+														
+													</td>
+														
+													<td>
+														<span>
+															<strong>:</strong>
+														</span>
+													</td>
+													<td>
+														<span t-field="doc.assigned" />
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<span>
+															<strong>Description:</strong>
+														</span>
+														
+													</td>
+														
+													<td>
+														<span>
+															<strong>:</strong>
+														</span>
+													</td>
+													<td>
+														<span t-field="doc.description" />
+													</td>
+												</tr>
+											
+											</table>
+										</td>
+									</tr>
+								</table>
+								<table>
+								  <tr>
+								  	<td><span><strong>Solved</strong></span></td>
+								  </tr>
+								</table>	
+							</div>
+						
+						</div>
+					</div>
+
+				</t>
+			</t>
+		</t>
+	</template>
+
+	<template id="solved_details">
+		<!-- <t t-call="web.basic_layout"> -->
+		<t t-call="web.html_container">
+			<t t-foreach="docs" t-as="doc">
+
+				<t t-call="web.external_layout">
+					<div class="page">
+						<div class="oe_structure"/>
+						<div class="row">
+							<div class="col-xs-8">
+								<table>
+								  <tr>
+								    <td><u>Incident Report</u></td>
+								  </tr>
+								  <tr>
+								    <td><strong>Reported by:</strong></td>
+								    <td>
+										<span t-field="doc.cust_name" />
+									</td>
+								  </tr>
+								</table>
+								<table class="table table-condensed" style="border: 3px solid black !important;">
+									<tr>
+										
+										<td width="60%">
+											<table>
+												<tr>
+													<td colspan="3" class="text-center">
+														<b><span t-field="doc.help_team" /></b>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<span>
+															<strong>Assigned To:</strong>
+														</span>
+														
+													</td>
+														
+													<td>
+														<span>
+															<strong>:</strong>
+														</span>
+													</td>
+													<td>
+														<span t-field="doc.assigned" />
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<span>
+															<strong>Action Taken:</strong>
+														</span>
+														
+													</td>
+														
+													<td>
+														<span>
+															<strong>:</strong>
+														</span>
+													</td>
+													<td>
+														<span t-field="doc.description" />
+													</td>
+												</tr>
+											
+											</table>
+										</td>
+									</tr>
+								</table>
+							</div>
+						
+						</div>
+					</div>
+
+				</t>
+			</t>
+		</t>
+	</template>
+
+	
+</odoo>
+

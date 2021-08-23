@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+customer_user,Base user,model_customer_profile,base.group_user,1,1,1,1
+profile_user,Base user,model_new_profile,base.group_user,1,1,1,1

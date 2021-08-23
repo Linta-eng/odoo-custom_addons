@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="report_customer_details" model="ir.actions.report">
+        <field name="name">Customer Details</field>
+        <field name="model">new.profile</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">helpdesk.customer_details</field>
+        <field name="report_file">helpdesk.customer_details</field>
+        <field name="binding_model_id" ref="model_new_profile"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_solved_details" model="ir.actions.report">
+        <field name="name">Solevd Details</field>
+        <field name="model">new.profile</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">helpdesk.solved_details</field>
+        <field name="report_file">helpdesk.solved_details</field>
+        <field name="binding_model_id" ref="model_new_profile"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    
+
+	
+</odoo>

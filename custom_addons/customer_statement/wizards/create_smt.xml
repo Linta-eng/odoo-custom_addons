@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        
+        <record id="customer_statement_report_wizard"  model="ir.ui.view">
+            <field name="name">create.new.wizard</field>
+            <field name="model">create.statement.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Customer statement">
+                    <sheet>
+                    <group>
+                        <group>
+                            <field name="start_date"/>
+                        </group>
+                        <group>
+                            <field name="end_date"/>
+                        </group>
+                    </group>
+                        <footer>
+                            <button name="customer_statement" string="Generate Statement" class="btn-primary" type="object"/>
+                            <button string="cancel" class="btn-secondary" special="cancel"/>
+                        </footer> 
+                    </sheet>                                 
+                </form>
+            </field>
+        </record> 
+
+<record id="customer_statement_wizard" model="ir.actions.act_window">
+    <field name="name">Customer Statement</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">create.statement.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="customer_statement_report_wizard"/>
+    <field name="target">new</field>
+</record>
+
+
+
+<menuitem id="customer_stmt" name="Customer Statement" action="customer_statement.customer_statement_wizard" sequence="120"  
+    parent="account.menu_finance_receivables"/>
+        
+
+    </data>
+</odoo>
+
+
+
+
+     

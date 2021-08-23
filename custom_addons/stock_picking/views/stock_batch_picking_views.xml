@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<record model="ir.ui.view" id="stock_batch_picking_tree">
+		<field name="name">Batch</field>
+	  	<field name="model">stock.picking.batch</field>
+	  	<field name="arch" type="xml">
+			<tree expand="1">
+				<field name="sequence"/>
+		  		<field name="partner_id"/>
+		  		<field name="route_id"/>
+		  	    <field name="scheduled_date"/>
+			</tree>
+	    </field>
+	</record>
+
+	<record model="ir.ui.view" id="stock_batch_picking_form">
+		<field name="name">Batch</field>
+	  	<field name="model">stock.picking.batch</field>
+	  	<field name="arch" type="xml">
+	  		<form string="Batch">
+	  			<header>
+	  				<button name="action_quotation_send" type="object" string="Send By Email" class="oe_highlight"/>
+	  			</header>
+	  			<sheet>
+	  				<div class="oe_title">
+						<h1>
+							<field name="sequence" readonly="1"/>
+						</h1>
+					</div>
+					<group>
+						<group>
+							<field name="partner_id" widget="res_partner_many2one"/>
+						</group>
+						<group>
+							<field name="route_id"/>
+						</group>
+						<group>
+							<field name="scheduled_date"/>
+						</group>
+					</group>
+					<notebook>
+						<pages string="Picking" name="picking_ids">
+							<group>
+								<field name="picking_ids"/>  
+							</group>
+						</pages>
+						<pages string="Other Info" name="note">
+							<group>
+								<field name="note"/>
+							</group>
+						</pages>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids"/>
+					<field name="activity_ids"/>
+					<field name="message_ids"/>
+				</div>
+			</form>
+	  	</field>
+	</record>
+
+
+
+	<record model="ir.actions.act_window" id="stock_batch_picking_action">
+		<field name="name">Batch</field>
+		<field name="res_model">stock.picking.batch</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+	<menuitem name="Stock" id="stock_picking_menu_root"/>
+	<menuitem name="Batch" id="stock_batch_picking_submenu_root" parent="stock_picking_menu_root"
+	sequence="4"/>
+
+	<menuitem name="Batch" id="stock_batch_picking" parent="stock_batch_picking_submenu_root"
+	action="stock_batch_picking_action"/>
+</odoo>

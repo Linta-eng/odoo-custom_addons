@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<!--Email template -->
+		<record id="email_template_batch_mail" model="mail.template">
+			<field name="name">Batch: Send by email</field>
+			<field name="model_id" ref="stock_picking.model_stock_picking_batch"/>
+			<field name="email_from">${(object.res_user_id.email}</field>
+			<field name="partner_to">${object.partner_id.id}</field>
+			<field name="subject">Batch Report (Ref ${object.sequence})</field>
+			<field name="body_html" type="html">
+				<div style="margin: 0px; padding: 0px;">
+					<p style="margin: 0px; padding: 0px; font-size: 13px;">
+						Dear ${object.partner_id.name}
+						<br/>
+						<br/>
+						This mail gives the details of your pickings with the reference
+					</p>
+					<p style="margin: 0px; padding: 0px; font-size: 13px;">
+						You can refer the attachement.
+						<br/>
+						<br/>
+						Do not hesitate to contact us if you have any questions.
+					</p>
+				</div>
+			</field>
+			<field name="report_template" ref="batch_picking_reports"/>
+			<field name="report_name">Batch Mail_${(object.sequence)}</field>
+			<field name="lang">${object.partner_id.lang}</field>
+            <field name="auto_delete" eval="True"/>
+		</record>
+	</data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id ="sale_inh_fo_view" model="ir.ui.view">
+		<field name="name">sale.inh.fo.view</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='order_line']" position="before">
+				<field name="status_button" invisible="1"/>
+				<button name="%(wizard_contract_storage)d" string="browse storage contract" type="action" style="width:20%;" class="oe_highlight" attrs="{'invisible': [('status_button', '=', False)]}" context="{'default_partner_id':partner_id}"/>
+
+			</xpath>
+		</field>
+
+	</record>
+
+	<record id ="sale_inh_forr_view" model="ir.ui.view">
+		<field name="name">sale.inh.forr.view</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+
+				<field name="storage_liness_id" invisible="1" />
+				<field name="remaining_qty"/>
+
+			</xpath>
+		</field>
+
+	</record>
+</odoo>
+
+
+
+
